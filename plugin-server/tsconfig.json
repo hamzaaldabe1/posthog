@@ -16,6 +16,7 @@
         "strict": true,
         "noImplicitAny": true,
         "useUnknownInCatchVariables": false,
+        "skipLibCheck": true,
         "paths": {
             "~/*": ["./*"],
             "main/*": ["./src/main/*"],

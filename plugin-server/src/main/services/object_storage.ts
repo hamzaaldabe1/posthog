@@ -37,6 +37,10 @@ export const getObjectStorage = (serverConfig: Partial<PluginsServerConfig>): Ob
                     credentials,
                     forcePathStyle: true, // needed with minio?
                     // signatureVersion: 'v4',
+                    requestHandler: {
+                        socketTimeout: 10 * 60 * 1000,
+                        requestTimeout: 10 * 60 * 1000
+                    }
                 })
 
                 objectStorage = {

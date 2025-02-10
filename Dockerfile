@@ -63,8 +63,11 @@ RUN apt-get update && \
     && \
     rm -rf /var/lib/apt/lists/* && \
     corepack enable && \
+    pnpm config set store-dir /tmp/pnpm-store && \
+    corepack prepare pnpm@8.6.0 --activate && \
     mkdir /tmp/pnpm-store && \
     pnpm install --frozen-lockfile --store-dir /tmp/pnpm-store && \
+    pnpm add undici --save && \
     cd ../common/plugin_transpiler && \
     pnpm install --frozen-lockfile --store-dir /tmp/pnpm-store && \
     pnpm build && \
